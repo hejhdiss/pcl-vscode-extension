@@ -1,0 +1,101 @@
+{
+  "name": "pcl-language",
+  "displayName": "PCL (Python-C Linked) Language",
+  "description": "VS Code extension for PCL (Python-C Linked) files. Supports syntax highlighting, auto-completion, folding, and running pcl files on Linux. See README for more.",
+  "version": "0.0.1",
+  "publisher": "hejhdiss",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "repository": {
+  "type": "git",
+  "url": "https://github.com/hejhdiss/pcl"
+},
+"homepage": "https://github.com/hejhdiss/pcl",
+"bugs": {
+  "url": "https://github.com/hejhdiss/pcl/issues"
+},
+  "keywords": [
+    "pcl",
+    "python",
+    "c",
+    "language",
+    "compiler",
+    "embedded"
+  ],
+  "author": {
+    "name": "Muhammed Shafin P",
+    "email": "hejhdiss@gmail.com"
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.70.0",
+    "@types/node": "^18.0.0",
+    "typescript": "^4.9.0",
+    "@vscode/test-electron": "^2.2.1"
+  },
+  "activationEvents": [
+    "onLanguage:pcl",
+    "onCommand:pcl.run"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "pcl",
+        "aliases": ["PCL", "pcl"],
+        "extensions": [".pcl"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pcl",
+        "scopeName": "source.pcl",
+        "path": "./syntaxes/pcl.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "pcl.run",
+        "title": "pcl run"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "pcl.run",
+        "key": "f5",
+        "when": "editorLangId == pcl"
+      }
+    ],
+     "menus": {
+    "editor/title": [
+      {
+        "command": "pcl.run",
+        "when": "resourceLangId == pcl",
+        "group": "navigation"     
+      }
+    ],
+    "commandPalette": [
+      {
+        "command": "pcl.run",
+        "when": "resourceLangId == pcl"
+      }
+    ]
+  },
+    "configurationDefaults": {
+      "[pcl]": {
+        "editor.defaultFormatter": "ms-python.python"
+      }
+    }
+  }
+}

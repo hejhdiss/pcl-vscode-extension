@@ -1,0 +1,38 @@
+{
+  "scopeName": "source.pcl",
+  "name": "PCL",
+  "patterns": [
+    {
+      "name": "keyword.control.pcl",
+      "match": "%(c|py|endc|endpy)\b"
+    },
+    {
+      "name": "keyword.other.directive.pcl",
+      "match": "\b(export|requires|name)\b"
+    },
+    {
+      "name": "comment.line.double-slash.c",
+      "match": "//.*$"
+    },
+    {
+      "name": "string.quoted.double.c",
+      "begin": """,
+      "end": """
+    },
+    {
+      "name": "constant.numeric.c",
+      "match": "\b\d+\b"
+    },
+    {
+      "name": "variable.language.pcl",
+      "match": "\b(g_[a-zA-Z_][a-zA-Z0-9_]*)\b"
+    },
+    {
+      "name": "entity.name.function.c",
+      "match": "\b([a-zA-Z_][a-zA-Z0-9_]*)\b"
+    }
+  ],
+  "repository": {},
+  "foldingStartMarker": "%(c|py)\b",
+  "foldingStopMarker": "%end(c|py)\b"
+}
