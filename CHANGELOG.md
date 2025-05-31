@@ -1,8 +1,8 @@
 # Changelog
 
 ## 0.0.1
-- Initial release
-- Syntax highlighting
-- F5 run support
-- Auto-detect `pcl` on Linux
-- Basic autocompletion
+- Autocompletion recommendation on pcl file.
+- F5 run integration
+- Auto detection of `pcl` installation
+- Build/clean commands
+- `.pyz` onefile packaging support
